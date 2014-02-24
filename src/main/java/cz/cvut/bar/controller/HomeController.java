@@ -9,6 +9,8 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,8 +46,8 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	@RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+	public String home(Locale locale, Model model, Authentication auth) {
 
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -54,7 +56,17 @@ public class HomeController {
 		
 		model.addAttribute("Èas na serveru", formattedDate );
 		
+		if(auth != null){
+			User u = (User) auth.getPrincipal();
+			model.addAttribute("user",u.getUsername());
+		}
+		
 		return "home";
+	}
+	
+	@RequestMapping(value="login.htm", method=RequestMethod.GET)
+	public String login(){
+		return "login";
 	}
 	
 	@RequestMapping(value="/list.htm", method = RequestMethod.GET)

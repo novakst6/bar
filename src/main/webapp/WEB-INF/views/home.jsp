@@ -10,5 +10,6 @@
 </h1>
 <a href="/bar/addUserRole.htm">Test link - seznamy</a>
 <P>  The time on the server is ${serverTime}. </P>
+<p>Security context: ${user}</p>
 </body>
 </html>
