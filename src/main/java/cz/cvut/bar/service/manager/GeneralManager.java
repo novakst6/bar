@@ -16,7 +16,7 @@ public abstract class GeneralManager<E> implements IGeneralManager<E> {
 	private static final long serialVersionUID = 6825484075860178838L;
 	
 	@Autowired
-    protected SessionFactory sf;
+    private SessionFactory sf;
     private Class<? extends E> entityClass;
 
     public void setEntityClass(Class<? extends E> clazz) {
@@ -44,14 +44,30 @@ public abstract class GeneralManager<E> implements IGeneralManager<E> {
 
 	@Override
 	public boolean edit(E entity) {
-		// TODO Auto-generated method stub
-		return false;
+        Session s = getCurrentSession();
+        try {
+            s.update(entity);
+            s.flush();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("ERROR EDIT> " + e.getMessage());
+        }
+        return false;
 	}
 
 	@Override
 	public boolean delete(E entity) {
-		// TODO Auto-generated method stub
-		return false;
+        Session s = getCurrentSession();
+        try {
+            s.delete(entity);
+            s.flush();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("ERROR DELETE> " + e.getMessage());
+        }
+        return false;
 	}
 
 	@Override

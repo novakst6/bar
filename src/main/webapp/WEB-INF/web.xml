@@ -77,9 +77,7 @@
 	</servlet-mapping>
 	
 	<welcome-file-list>
-		<welcome-file>
-		index.htm
-		</welcome-file>
+		<welcome-file>redirect.jsp</welcome-file>
 	</welcome-file-list>
 
 </web-app>
