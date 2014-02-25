@@ -32,7 +32,7 @@ import cz.cvut.bar.service.manager.UserRoleManager;
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+//	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
 	private UserManager userManager;
@@ -49,6 +49,31 @@ public class HomeController {
 	@RequestMapping(value = "/index.htm", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, Authentication auth) {
 
+		if(userRoleManager.findAll().isEmpty()){
+			UserRoleEntity r1 = new UserRoleEntity();
+			r1.setName("ROLE_USER");
+			userRoleManager.add(r1);
+			
+			UserRoleEntity r2 = new UserRoleEntity();
+			r2.setName("ROLE_ADMIN");
+			userRoleManager.add(r2);
+			
+			UserEntity u1 = new UserEntity();
+			u1.setUsername("USER_1");
+			u1.setPassword(spe.encode("12345"));
+			u1.getRoles().add(r1);
+			userManager.add(u1);
+			
+			UserEntity u2 = new UserEntity();
+			u2.setUsername("USER_2");
+			u2.setPassword(spe.encode("12345"));
+			u2.getRoles().add(r1);
+			u2.getRoles().add(r2);
+			userManager.add(u2);
+		}
+		
+		model.addAttribute("users", userManager.findAll());
+		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
@@ -59,6 +84,7 @@ public class HomeController {
 		if(auth != null){
 			User u = (User) auth.getPrincipal();
 			model.addAttribute("user",u.getUsername());
+			model.addAttribute("role", u.getAuthorities());
 		}
 		
 		return "home";
