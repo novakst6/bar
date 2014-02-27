@@ -1,8 +1,8 @@
 package cz.cvut.bar.model.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="USERS")
@@ -33,7 +35,8 @@ public class UserEntity implements Serializable {
 	private String password;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
-	private Set<UserRoleEntity> roles = new HashSet<UserRoleEntity>();
+	@JsonManagedReference
+	private List<UserRoleEntity> roles = new LinkedList<UserRoleEntity>();
 
 	public Long getId() {
 		return id;
@@ -59,11 +62,11 @@ public class UserEntity implements Serializable {
 		this.password = password;
 	}
 
-	public Set<UserRoleEntity> getRoles() {
+	public List<UserRoleEntity> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<UserRoleEntity> roles) {
+	public void setRoles(List<UserRoleEntity> roles) {
 		this.roles = roles;
 	}
 	

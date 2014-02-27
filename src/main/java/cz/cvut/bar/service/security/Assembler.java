@@ -2,7 +2,7 @@ package cz.cvut.bar.service.security;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,7 +29,7 @@ public class Assembler {
         boolean accoountNonLocked = true;
 
         Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        Set<UserRoleEntity> roles = userEntity.getRoles();
+        List<UserRoleEntity> roles = userEntity.getRoles();
         try {
         } catch (Exception e) {
         }

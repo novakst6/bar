@@ -23,7 +23,7 @@
 		</tr>
 	</c:forEach>
 </table>
-<P>  The time on the server is ${serverTime}. </P>
+<P>  The time on the server is ${time}. </P>
 <p>Security context: ${user} ${role}</p>
 </body>
 </html>
