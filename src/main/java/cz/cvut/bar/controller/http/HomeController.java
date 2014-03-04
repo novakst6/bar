@@ -43,10 +43,8 @@ public class HomeController {
 	@Autowired
 	private StandardPasswordEncoder spe;
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+	// index
+	@RequestMapping(value = {"/", "/index.htm"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model, Authentication auth) {
 
 		if(userRoleManager.findAll().isEmpty()){
