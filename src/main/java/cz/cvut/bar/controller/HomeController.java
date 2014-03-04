@@ -9,6 +9,7 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.SpringVersion;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
@@ -46,7 +47,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/index.htm"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model, Authentication auth) {
 
 		if(userRoleManager.findAll().isEmpty()){
@@ -79,13 +80,16 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		
-		model.addAttribute("Èas na serveru", formattedDate );
+		model.addAttribute("ï¿½as na serveru", formattedDate );
 		
 		if(auth != null){
 			User u = (User) auth.getPrincipal();
 			model.addAttribute("user",u.getUsername());
 			model.addAttribute("role", u.getAuthorities());
 		}
+		
+		// verze springu		
+		model.addAttribute("springVersion", SpringVersion.getVersion());
 		
 		return "home";
 	}

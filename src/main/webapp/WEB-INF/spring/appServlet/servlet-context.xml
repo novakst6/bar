@@ -26,7 +26,6 @@
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
           http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
-          
 ">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
@@ -35,7 +34,7 @@
 	<mvc:annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/files/**" location="/files/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

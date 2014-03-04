@@ -25,5 +25,8 @@
 </table>
 <P>  The time on the server is ${serverTime}. </P>
 <p>Security context: ${user} ${role}</p>
+<div style="position:absolute;bottom:5px">Spring version: ${springVersion}
+	<img src='<c:url value="/files/smile.png" />' />
+</div>
 </body>
 </html>
