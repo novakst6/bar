@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -32,7 +34,7 @@ import cz.cvut.bar.service.manager.UserRoleManager;
 @Controller
 public class HomeController {
 	
-//	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
 	private UserManager userManager;
@@ -70,6 +72,7 @@ public class HomeController {
 			userManager.add(u2);
 		} else{
 			System.out.print("Nothing to do.");
+			logger.info("INDEX");
 		}
 		
 		model.addAttribute("users", userManager.findAll());
