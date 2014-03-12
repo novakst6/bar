@@ -31,7 +31,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan base-package="cz.cvut.bar" />
-	<mvc:annotation-driven />
+<!-- 	<mvc:annotation-driven /> -->
 	
 		<!-- Datasource and Hibernate settings -->
     <bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >

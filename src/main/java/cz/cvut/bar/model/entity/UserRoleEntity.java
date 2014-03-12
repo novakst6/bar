@@ -9,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+
 @Entity
 @Table(name="USER_ROLE")
+@JsonAutoDetect
 public class UserRoleEntity implements Serializable {
 	/**
 	 * 

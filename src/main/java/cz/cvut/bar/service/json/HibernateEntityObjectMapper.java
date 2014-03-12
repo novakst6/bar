@@ -8,12 +8,12 @@ package cz.cvut.bar.service.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
-
-
-/**
- *
- * @author Stenlik
- */
+//
+//
+///**
+// *
+// * @author Stenlik
+// */
 public class HibernateEntityObjectMapper extends ObjectMapper {
 
     /**
@@ -24,7 +24,7 @@ public class HibernateEntityObjectMapper extends ObjectMapper {
 	public HibernateEntityObjectMapper() {
 		Hibernate4Module hbm = new Hibernate4Module();
 		hbm.enable(Hibernate4Module.Feature.FORCE_LAZY_LOADING);
-        registerModule(hbm);
+        this.registerModule(hbm);
     }
     
 }

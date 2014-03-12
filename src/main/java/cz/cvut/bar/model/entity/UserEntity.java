@@ -13,10 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+
 
 @Entity
 @Table(name="USERS")
+@JsonAutoDetect
 public class UserEntity implements Serializable {
 	/**
 	 * 
@@ -35,7 +37,6 @@ public class UserEntity implements Serializable {
 	private String password;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
-	@JsonManagedReference
 	private List<UserRoleEntity> roles = new LinkedList<UserRoleEntity>();
 
 	public Long getId() {
