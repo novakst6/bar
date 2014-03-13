@@ -161,4 +161,9 @@ public class HomeController {
 		return "redirect:addUser.htm";
 	}
 	
+	@RequestMapping(value="/websockettest.htm", method = RequestMethod.GET)
+	public String addUserGET(){
+		return "websockettest";
+	}
+	
 }

@@ -16,6 +16,13 @@
 		<hibernate.version>4.0.0.Final</hibernate.version>
 	</properties>
 	<dependencies>
+	
+		<!-- WebScoket -->
+		<dependency>
+			<groupId>org.jboss.spec.javax.websocket</groupId>
+			<artifactId>jboss-websocket-api_1.0_spec</artifactId>
+			<version>1.0.0.Final</version>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
