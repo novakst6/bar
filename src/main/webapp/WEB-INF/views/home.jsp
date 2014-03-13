@@ -23,6 +23,16 @@
 		</tr>
 	</c:forEach>
 </table>
+<h2>Kategorie:</h2>
+<table>
+	<tr><th>ID</th><th>Category name</th></tr>
+	<c:forEach items="${cats}" var="cat">
+		<tr>
+			<td>${cat.id}</td>
+			<td>${cat.name}</td>
+		</tr>
+	</c:forEach>
+</table>
 <P>  The time on the server is ${time}. </P>
 <p>Security context: ${user} ${role}</p>
 </body>

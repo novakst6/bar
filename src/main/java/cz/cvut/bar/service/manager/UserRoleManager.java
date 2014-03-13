@@ -3,6 +3,7 @@ package cz.cvut.bar.service.manager;
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
+
 import cz.cvut.bar.model.entity.UserRoleEntity;
 
 @Service(value="userRoleManager")

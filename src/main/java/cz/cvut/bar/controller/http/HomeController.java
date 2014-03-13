@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import cz.cvut.bar.model.entity.ItemCategoryEntity;
 import cz.cvut.bar.model.entity.UserEntity;
 import cz.cvut.bar.model.entity.UserRoleEntity;
 import cz.cvut.bar.model.form.UserForm;
 import cz.cvut.bar.model.form.UserRoleForm;
+import cz.cvut.bar.service.manager.ItemCategoryManager;
 import cz.cvut.bar.service.manager.UserManager;
 import cz.cvut.bar.service.manager.UserRoleManager;
 
@@ -36,20 +38,34 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@Autowired
-	private UserManager userManager;
-	
-	@Autowired
-	private UserRoleManager userRoleManager;
-	
-	@Autowired
-	private StandardPasswordEncoder spe;
+	@Autowired private UserManager userManager;	
+	@Autowired private UserRoleManager userRoleManager;
+	@Autowired private ItemCategoryManager itemCategoryManager;
+	@Autowired private StandardPasswordEncoder spe;
 	
 	// index
 	@RequestMapping(value = {"/", "/index.htm"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model, Authentication auth) {
+		
+		logger.info("index");
+		
+		if(itemCategoryManager.findAll().isEmpty()){
+			logger.debug("Initing cats!");
+			
+			ItemCategoryEntity cat1 = new ItemCategoryEntity();
+			cat1.setName("Alko");
+			itemCategoryManager.add(cat1);
+			
+			ItemCategoryEntity cat2 = new ItemCategoryEntity();
+			cat2.setName("Maso");
+			itemCategoryManager.add(cat2);
+		}else{			
+			logger.info("Cats not empty: "+itemCategoryManager.findAll().size());
+		}
 
 		if(userRoleManager.findAll().isEmpty()){
+			logger.debug("Initing users!");
+			
 			UserRoleEntity r1 = new UserRoleEntity();
 			r1.setName("ROLE_USER");
 			userRoleManager.add(r1);
@@ -72,10 +88,11 @@ public class HomeController {
 			userManager.add(u2);
 		} else{
 			System.out.print("Nothing to do.");
-			logger.info("INDEX");
+			logger.info("Users not empty");
 		}
 		
 		model.addAttribute("users", userManager.findAll());
+		model.addAttribute("cats", itemCategoryManager.findAll());
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
