@@ -1,0 +1,79 @@
+html{
+	padding:0;
+	margin:0;
+	height:100%;
+}
+
+body{
+	background-color: #F3F3F3;
+	background-image: url("noise1.png");
+	/*padding: 5px 10px 5px 10px;*/
+	padding:0;
+	margin:0;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	height:100%;
+}
+
+/* Menus */
+a, .ui-button{
+	margin-right: 10px !important;
+}
+#upmenu{padding-top: 10px; margin-left: 20px; margin-bottom: 10px;}
+#upmenu a, #upmenu .ui-button-text{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+#secmenu{margin-left: 20px; margin-bottom: 10px;}
+#secmenu a, #upmenu .ui-button-text{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+}
+.smallmenu{margin-bottom: 10px;}
+.smallmenu a, #upmenu .ui-button-text{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+}
+
+/* View */
+#frameholder{
+	width:100%;
+	height:100%;
+}
+#centerframe{
+	width: 980px;
+	margin:0 auto;
+}
+#mainview{
+	padding:20px;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	min-height: 200px;
+    -moz-box-shadow:
+        0px 0px 4px 0px #dedede;
+    -webkit-box-shadow:
+        0px 0px 4px 0px #dedede;
+    box-shadow:
+		0px 0px 4px 0px #dedede;
+}
+#testpane{
+	margin: 20px 0px 20px 0px;
+	padding: 20px;
+	/*-webkit-box-shadow:inset 0 0 10px 0 #CCCCCC;
+	box-shadow:inset 0 0 10px 0 #CCCCCC;*/
+	border-radius: 5px;
+		background-image: url("lines3.png");
+}
+#testpane textarea{
+	width: 99%;
+	height: 150px;
+}
+
+/* Footer */
+#footer{	
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #999999;
+	margin: 20px;
+}
