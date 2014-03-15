@@ -2,11 +2,14 @@ package cz.cvut.bar.controller.json;
 
 
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,10 +40,10 @@ public class UserJsonController {
 	
 	@RequestMapping(method={RequestMethod.POST})
 	@ResponseStatus(value=HttpStatus.CREATED)
-	public void postUser(@RequestBody final UserEntity user){
+	@ResponseBody
+	public UserEntity postUser(@Valid @RequestBody UserEntity user){
 		userManager.add(user);
-		logger.info(user.getRoles().size()+" Tolik ma roli");
-		
+		return user;
 	}
 	
 }

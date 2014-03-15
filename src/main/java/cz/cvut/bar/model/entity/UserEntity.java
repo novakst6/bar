@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -31,9 +32,11 @@ public class UserEntity implements Serializable {
 	private Long id;
 	
 	@Column(name="USERNAME")
+	@NotEmpty
 	private String username;
 	
 	@Column(name="PASSWORD")
+	@NotEmpty
 	private String password;
 	
 	@ManyToMany(fetch=FetchType.LAZY)

@@ -43,13 +43,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
-<!-- 			<exclusions> -->
-<!-- 				Exclude Commons Logging in favor of SLF4j -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>commons-logging</groupId> -->
-<!-- 					<artifactId>commons-logging</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 			</exclusions> -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -228,57 +221,11 @@
 		</dependency>
 
 		<!-- Logging -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-api</artifactId> -->
-<!-- 			<version>${org.slf4j-version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-simple</artifactId> -->
-<!-- 			<version>${org.slf4j-version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-jcl</artifactId> -->
-<!-- 			<version>${org.slf4j-version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>jcl-over-slf4j</artifactId> -->
-<!-- 			<version>${org.slf4j-version}</version> -->
-<!-- 			<scope>runtime</scope> -->
-<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
-<!-- 			<scope>runtime</scope> -->
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>log4j</groupId> -->
-<!-- 			<artifactId>log4j</artifactId> -->
-<!-- 			<version>1.2.15</version> -->
-<!-- 			<exclusions> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>javax.mail</groupId> -->
-<!-- 					<artifactId>mail</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>javax.jms</groupId> -->
-<!-- 					<artifactId>jms</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>com.sun.jdmk</groupId> -->
-<!-- 					<artifactId>jmxtools</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>com.sun.jmx</groupId> -->
-<!-- 					<artifactId>jmxri</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 			</exclusions> -->
-<!-- 			<scope>runtime</scope> -->
-<!-- 		</dependency> -->
 
 		<!-- @Inject -->
 		<dependency>
@@ -306,12 +253,6 @@
 			<version>1.2</version>
 		</dependency>
 
-		<!-- AOP -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>cglib</groupId> -->
-<!-- 			<artifactId>cglib</artifactId> -->
-<!-- 			<version>2.2</version> -->
-<!-- 		</dependency> -->
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -322,16 +263,16 @@
 
 		<!-- Jackson JSON Mapper -->
 		<dependency>
-	<groupId>org.codehaus.jackson</groupId>
-	<artifactId>jackson-mapper-asl</artifactId>
-	<version>1.9.5</version>
-</dependency>
-            
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.5</version>
+		</dependency>
+
 		<dependency>
-	<groupId>org.codehaus.jackson</groupId>
-	<artifactId>jackson-core-asl</artifactId>
-	<version>1.9.5</version>
-</dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.5</version>
+		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-hibernate4</artifactId>
@@ -339,11 +280,6 @@
 		</dependency>
 
 		<!-- Commons -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>commons-logging</groupId> -->
-<!-- 			<artifactId>commons-logging</artifactId> -->
-<!-- 			<version>1.1.1</version> -->
-<!-- 		</dependency> -->
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
@@ -367,7 +303,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>1.2</version>
+			<version>1.3.2</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-pool</groupId>
@@ -377,7 +313,7 @@
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
-			<version>1.2.1</version>
+			<version>1.2.2</version>
 		</dependency>
 	</dependencies>
 	<build>
